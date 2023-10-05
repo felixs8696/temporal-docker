@@ -9,10 +9,10 @@ k8s/temporal-%.yaml: docker-compose-%.yml
 	yq -i '(.items.[] | select(.kind == "Deployment") | .spec.template.spec.enableServiceLinks) = false' $@
 
 start:
-        docker compose up
+	docker compose up
 
 stop:
-        docker compose down
+	docker compose down
 
 serve:
-        ngrok http 8080
+	ngrok http 8080
